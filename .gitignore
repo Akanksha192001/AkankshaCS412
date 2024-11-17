@@ -11,7 +11,7 @@ npm-debug.log
 yarn-error.log
 
 # IDEs and editors
-.idea/
+../.idea/
 .project
 .classpath
 .c9/
@@ -39,3 +39,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+/backend/node_modules
+/frontend/.angular
+/frontend/node_modules
+/.idea
