@@ -1,36 +1,3 @@
-// import {Component, OnInit} from '@angular/core';
-// import {Post} from "../post.model";
-// import {NgForm} from "@angular/forms";
-// import {PostService} from "../post.service";
-//
-// @Component({
-//     selector: 'app-create-post',
-//     templateUrl: './create-post.component.html',
-//     styleUrls: ['./create-post.component.css']
-// })
-// export class CreatePostComponent implements OnInit{
-//
-//     constructor(public postService: PostService) {
-//     }
-//
-//     ngOnInit() {
-//
-//     }
-//
-//     onAddPost(form: NgForm) {
-//         if (form.invalid) {
-//             return;
-//         }
-//
-//         const post: Post = {
-//             title: form.value.title,
-//             content: form.value.content
-//         }
-//         this.postService.addPost(form.value.title, form.value.content);
-//         form.resetForm();
-//     }
-// }
-
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {PostService} from "../post.service";
@@ -76,7 +43,7 @@ export class CreatePostComponent implements OnInit {
         if (this.mode === 'create') {
             this.postService.addPost(form.value.title, form.value.content);
             form.resetForm();
-        } else{
+        } else {
             this.postService.updatePost(this.postId, form.value.title, form.value.content);
         }
         this.isLoading = false;

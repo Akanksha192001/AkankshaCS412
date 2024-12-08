@@ -1,9 +1,7 @@
-// const http = require('http'); //default pkg in node.js system
-// const app = require('./app'); //app is the listener for incoming requests
 import app from './app.js';
 import http from 'http';
 import createDebug from 'debug';
-//creates a debug with a namespace ei DEBUG = node-ng
+
 const debug = createDebug('node-ng');
 
 const normalizePort = val => {
@@ -42,6 +40,3 @@ const server = http.createServer(app);
 server.on("error", onError);
 server.on("listening", onListening);
 server.listen(port);
-// We need to use hostings environment variable for port but for dev we'll use 3000
-// they are injected on runtime but can be accessed
-// we need to ctrl z to end the process

@@ -1,9 +1,10 @@
 import express from 'express';
 import Post from '../model/post.js';
+import checkAuth from "../middleware/check-auth.js";
 
 const router = express.Router();
 
-router.post('', (req, res, next) => {
+router.post('', checkAuth, (req, res, next) => {
     const post = new Post({
         title: req.body.title,
         content: req.body.content
@@ -48,16 +49,16 @@ router.delete('/:id', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-  Post.findById(req.params.id).then(post => {
-      if (post) {
-          res.status(200).json(post);
-      } else {
-          res.status(404).json({
-              success: false,
-              message: 'data not found'
-          });
-      }
-  });
+    Post.findById(req.params.id).then(post => {
+        if (post) {
+            res.status(200).json(post);
+        } else {
+            res.status(404).json({
+                success: false,
+                message: 'data not found'
+            });
+        }
+    });
 });
 
 export default router;
